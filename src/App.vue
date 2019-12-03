@@ -1,14 +1,13 @@
-<template>
-  <div id="app" class="small-container">
-    <h1>Employees</h1>
-
-    <employee-form @add:employee="addEmployee" />
-
-    <employee-table 
-      :employees="employees"
-       @delete:employee="deleteEmployee" 
-       @edit:employee="editEmployee"/>
-  </div>
+<template lang="pug">
+  div#app.small-container
+    div#form.form-container
+      h1.title Employees
+      employee-form(@add:employee="addEmployee")
+    div#table.table-container
+      employee-table(
+        :employees="employees"
+        @delete:employee="deleteEmployee"
+        @edit:employee="editEmployee")
 </template>
 
 <script>
@@ -67,13 +66,13 @@ export default {
 };
 </script>
 
-<style>
-button {
-  background: #009435;
-  border: 1px solid #009435;
-}
-
-.small-container {
-  max-width: 680px;
-}
+<style lang="stylus" scoped>
+.small-container
+  font-family 'Open Sans', sans-serif;
+  .form-container
+    display flex
+    flex-direction column
+    align-items center
+    .title
+      color red    
 </style>

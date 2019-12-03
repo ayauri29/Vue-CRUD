@@ -1,24 +1,18 @@
-<template>
-  <div id="employee-form">
-    <form @submit.prevent="handleSubmit">
-      <label>Employee name</label>
-      <input
+<template lang="pug">
+  div#employee-form.form-container
+    form(@submit.prevent="handleSubmit")
+      label Employee name
+      input(
         ref="first"
         type="text"
-        
-        v-model="employee.name"
-       
-      />
-      <label>Employee Email</label>
-      <input
+        v-model="employee.name")
+      label Employee Email
+      input(
         type="text"
-        v-model="employee.email"
-      />
-      <p v-if="error && submitting" class="error-message">❗Please fill out all required fields</p>
-      <p v-if="success" class="success-message">✅ Employee successfully added</p>
-      <button>Add Employee</button>
-    </form>
-  </div>
+        v-model="employee.email")
+      p(v-if="error && submitting" class="error-message") ❗Please fill out all required fields
+      p(v-if="success" class="success-message") ✅Employee successfully added
+      button.button-add Add Employee
 </template>
 
 <script>
@@ -72,20 +66,15 @@ export default {
 }
 </script>
 
-<style scoped>
-  form {
-    margin-bottom: 2rem;
-  }
-
-  [class*="-message"] {
-    font-weight: 500;
-  }
-
-  .error-message {
-    color: #d33c40;
-  }
-
-  .success-message {
-    color: #32a95d;
-  }
+<style lang="stylus" scoped>
+  .form-container
+    margin-bottom 2rem
+    display flex
+    .button-add
+      color white
+      background-color #3e51d8
+    .error-message 
+      color #d33c40;
+    .success-message
+      color #32a95d
 </style>
